@@ -4,12 +4,52 @@ protocol Swipable {
     func swipe(pass: EntrantPass) throws -> String
 }
 
-class SwipeArea {
+class SwipeArea: Swipable {
+    
+    var swippedPasses: [EntrantPass: Date] = [:]
+    
     var accessType: Access
     var accessGranted = false
     
     init(accessType: Access) {
         self.accessType = accessType
+    }
+    
+    
+    func addPass(pass: EntrantPass){
+        swippedPasses[pass] = Date()
+    }
+    
+    func isPassValidNow(_ swippedPass: EntrantPass) -> Bool {
+        for (key, value) in swippedPasses {
+            if swippedPasses[key] != nil {
+                if fiveSecondsPassed(from: value) {
+                    return true
+                } else {
+                    return false
+                }
+                
+            }
+        }
+        addPass(pass: swippedPass)
+        return true
+    }
+    
+    func fiveSecondsPassed(from date: Date) -> Bool {
+        
+        let startDate = Date()
+        let endDate = date
+        let difference = Calendar.current.dateComponents([.second], from: startDate, to: endDate)
+        if difference.second! > 5 {
+           return true
+        } else {
+            print("5 seconds interval did not pass")
+            return false
+        }
+    }
+    
+    func swipe(pass: EntrantPass) throws -> String{
+        return ""
     }
     
     func swipeMessage(isAccessable: Bool, pass: EntrantPass) -> String {
@@ -28,8 +68,8 @@ class SwipeArea {
     }
 }
 
-class RideSwiper: SwipeArea, Swipable {
-    
+class RideSwiper: SwipeArea {
+
     var rideName: String
     
     init(rideName: String){
@@ -37,17 +77,18 @@ class RideSwiper: SwipeArea, Swipable {
         super.init(accessType: RideAccess.allRides)
     }
     
-    func swipe(pass: EntrantPass) throws -> String {
+    override func swipe(pass: EntrantPass) throws -> String {
+        
         guard let accessType = self.accessType as? RideAccess  else {
             throw DataError.missingAccess
         }
 
-        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType), pass: pass)
+        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+        
     }
 }
 
-class SkipLineSwiper: SwipeArea, Swipable {
-    
+class SkipLineSwiper: SwipeArea {
     var rideName: String
     
     init(rideName: String){
@@ -55,16 +96,15 @@ class SkipLineSwiper: SwipeArea, Swipable {
         super.init(accessType: RideAccess.skipAllLines)
     }
     
-    func swipe(pass: EntrantPass) throws -> String {
+    override func swipe(pass: EntrantPass) throws -> String {
         guard let accessType = self.accessType as? RideAccess  else {
             throw DataError.missingAccess
         }
-        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType), pass: pass)
+        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
     }
 }
 
-class AmusementAreaSwiper: SwipeArea, Swipable {
-    
+class AmusementAreaSwiper: SwipeArea {
     var amusementAreaName: String
     
     init(amusementAreaName: String){
@@ -72,17 +112,16 @@ class AmusementAreaSwiper: SwipeArea, Swipable {
         super.init(accessType: AreaAccess.amusementAreas)
     }
     
-    func swipe(pass: EntrantPass) throws -> String {
+    override func swipe(pass: EntrantPass) throws -> String {
         guard let accessType = self.accessType as? AreaAccess  else {
             throw DataError.missingAccess
         }
-        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType), pass: pass)
+        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
     }
 }
 
 
-class DiscountSwiper: SwipeArea, Swipable {
-    
+class DiscountSwiper: SwipeArea {
     var discountName: String
     
     init(discountName: String){
@@ -90,13 +129,10 @@ class DiscountSwiper: SwipeArea, Swipable {
         super.init(accessType: DiscountAccess.onFood(percentage: 10))
     }
     
-    func swipe(pass: EntrantPass) throws -> String {
+    override func swipe(pass: EntrantPass) throws -> String {
         guard let accessType = self.accessType as? DiscountAccess  else {
             throw DataError.missingAccess
         }
-        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType}), pass: pass)
+        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType})&&isPassValidNow(pass), pass: pass)
     }
 }
-
-
-

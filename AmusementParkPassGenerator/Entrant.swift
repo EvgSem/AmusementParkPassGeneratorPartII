@@ -1,6 +1,6 @@
 import Foundation
 
-protocol SwipeItemProtocol {
+protocol SwipeItemProtocol: Hashable {
 
     var areaAccess: [AreaAccess] {get set}
     var rideAccess: [RideAccess] {get set}
@@ -10,6 +10,13 @@ protocol SwipeItemProtocol {
 }
 
 class EntrantPass: SwipeItemProtocol {
+    static func == (lhs: EntrantPass, rhs: EntrantPass) -> Bool {
+        return lhs === rhs
+    }
+    
+    var hashValue: Int {
+        return Unmanaged.passUnretained(self).toOpaque().hashValue
+    }
     
     var entrantType: EntrantType
     
@@ -54,7 +61,4 @@ class EntrantPass: SwipeItemProtocol {
             return false
         }
     }
-    
-    
-    
 }

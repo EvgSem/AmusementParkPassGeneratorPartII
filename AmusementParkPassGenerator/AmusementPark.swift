@@ -3,14 +3,13 @@ import Foundation
 class AmusementPark {
     
     var pass: EntrantPass?
-    var swipers: [Swipable] = []
+    var swipers: [SwipeArea] = []
     
     
     init() {
         
     }
-    
-    
+
     func createPass() {
         var info = Info()
         info.dateOfBirth = setDate(for: "2016/09/26")
@@ -55,14 +54,29 @@ class AmusementPark {
                 } catch let error {
                     print(error.localizedDescription)
                 }
-                
             }
-            
         }
+        
+        // comment for loop above and uncomment block below if you want to test 5 second limit
+        
+//        if let pass = pass {
+//            do{
+//                try swipers[0].swipe(pass: pass)
+//                try swipers[0].swipe(pass: pass)
+//            } catch let error {
+//                print(error.localizedDescription)
+//            }
+//        }
+        
     }
     
+//    func clearSwippedPasses() {
+//        for swiper in swipers {
+//            swiper.swippedPasses = []
+//        }
+//    }
     
-    func setDate(for dateString: String) -> Date? {
+    private func setDate(for dateString: String) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
         if let someDateTime = formatter.date(from: dateString) {

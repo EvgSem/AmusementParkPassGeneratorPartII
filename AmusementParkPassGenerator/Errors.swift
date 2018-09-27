@@ -1,11 +1,3 @@
-//
-//  File.swift
-//  AmusementParkPassGenerator
-//
-//  Created by Ievgeniia Bondini on 9/23/18.
-//  Copyright © 2018 Ievgeniia Bondini. All rights reserved.
-//
-
 import Foundation
 
 
