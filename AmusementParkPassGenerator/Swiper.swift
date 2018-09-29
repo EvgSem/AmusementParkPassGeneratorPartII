@@ -7,12 +7,13 @@ protocol Swipable {
 class SwipeArea: Swipable {
     
     var swippedPasses: [EntrantPass: Date] = [:]
-    
+    var description: String
     var accessType: Access
     var accessGranted = false
     
     init(accessType: Access) {
         self.accessType = accessType
+        self.description = ""
     }
     
     
@@ -63,8 +64,8 @@ class SwipeArea: Swipable {
             print("Welcome! \(birthdayGreeting)")
             return "Welcome! \(birthdayGreeting)"
         }
-        print("\(birthdayGreeting) Sorry, You do not an access here.")
-        return "\(birthdayGreeting) Sorry, You do not an access here."
+        print("\(birthdayGreeting) Sorry, You do not have an access here.")
+        return "\(birthdayGreeting) Sorry, You do not have an access here."
     }
 }
 
@@ -75,6 +76,7 @@ class RideSwiper: SwipeArea {
     init(rideName: String){
         self.rideName = rideName
         super.init(accessType: RideAccess.allRides)
+        self.description = "RideSwiper checks AllRides Access"
     }
     
     override func swipe(pass: EntrantPass) throws -> String {
@@ -94,6 +96,7 @@ class SkipLineSwiper: SwipeArea {
     init(rideName: String){
         self.rideName = rideName
         super.init(accessType: RideAccess.skipAllLines)
+        self.description = "SkipLineSwiper checks SkipAllLines Access"
     }
     
     override func swipe(pass: EntrantPass) throws -> String {
@@ -110,6 +113,7 @@ class AmusementAreaSwiper: SwipeArea {
     init(amusementAreaName: String){
         self.amusementAreaName = amusementAreaName
         super.init(accessType: AreaAccess.amusementAreas)
+        self.description = "AmusementAreaSwiper checks AmusementAreas Access"
     }
     
     override func swipe(pass: EntrantPass) throws -> String {
@@ -126,7 +130,8 @@ class DiscountSwiper: SwipeArea {
     
     init(discountName: String){
         self.discountName = discountName
-        super.init(accessType: DiscountAccess.onFood(percentage: 10))
+        super.init(accessType: DiscountAccess.onFood(percentage: 15))
+        self.description = "DiscountSwiper checks DicountOnFood for 15% Access"
     }
     
     override func swipe(pass: EntrantPass) throws -> String {

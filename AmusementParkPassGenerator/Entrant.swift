@@ -38,11 +38,11 @@ class EntrantPass: SwipeItemProtocol {
         
         
         let validator = Validator()
-        do {
+      //  do {
             try validator.validateProvidedPersonalInfo(entrantType: self.entrantType, prividedInfo: providedPersonalInfo)
-        } catch let error {
-            print(error.localizedDescription)
-        }
+//} catch let error {
+   //         print(error.localizedDescription)
+   //     }
         
         self.providedPersonalInfo = providedPersonalInfo
     }
