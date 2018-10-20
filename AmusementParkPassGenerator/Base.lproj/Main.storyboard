@@ -392,6 +392,7 @@
                     </view>
                     <connections>
                         <outlet property="employeeButton" destination="4GR-af-rfR" id="fJJ-44-y95"/>
+                        <outlet property="entrantSubTypeStackView" destination="End-eW-Jv8" id="E9l-Ui-LEB"/>
                         <outlet property="guestButton" destination="m3l-vP-5T4" id="usb-rM-OzH"/>
                         <outlet property="managerButton" destination="b51-Ey-Jg4" id="l87-Wx-30o"/>
                         <outlet property="subType1Button" destination="UOg-ag-KeM" id="XOM-ql-0eP"/>

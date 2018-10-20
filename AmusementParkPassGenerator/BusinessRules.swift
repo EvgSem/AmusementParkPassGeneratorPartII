@@ -9,8 +9,8 @@ enum GuestType {
 }
 
 
-enum EmployeeType {
-    case foodServices
+enum EmployeeType: Int {
+    case foodServices = 1
     case rideServices
     case maintenance
     case contract

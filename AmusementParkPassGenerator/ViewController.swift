@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var subType4Button: UIButton!
     @IBOutlet weak var subType5Button: UIButton!
     
+    @IBOutlet weak var entrantSubTypeStackView: UIStackView!
     
     let amusementPark = AmusementPark()
     
@@ -33,21 +34,33 @@ class ViewController: UIViewController {
     
     
     @IBAction func passTypeButtonTapped(_ sender: UIButton) {
-        var tag = sender.titleLabel?.text
-        print(tag)
-//
-//        switch tag {
-//        case 0:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
-       
-        
-       
+        setFontForButtonWithTag(sender.tag)
         
         
-    
+        
+        let entrantTypes : [EntrantTypeButtonTitles] = [.guest, .employee, .manager, .vendor]
+        
+        let tappedButtonTitle = entrantTypes[sender.tag]
+        switch tappedButtonTitle {
+        case .guest:
+            entrantSubTypeStackView.isHidden = false
+            subType1Button.setTitle("Adult", for: .normal)
+            subType2Button.setTitle("Child", for: .normal)
+            subType3Button.setTitle("VIP", for: .normal)
+            subType4Button.setTitle("Senior", for: .normal)
+            subType5Button.setTitle("Season Pass", for: .normal)
+        case .employee:
+            entrantSubTypeStackView.isHidden = false
+            subType1Button.setTitle("Food Services", for: .normal)
+            subType2Button.setTitle("Ride Services", for: .normal)
+            subType3Button.setTitle("Maintenance", for: .normal)
+            subType4Button.setTitle("Contract", for: .normal)
+            subType5Button.isHidden = true
+        
+        case .manager, .vendor:
+            entrantSubTypeStackView.isHidden = true
+        }
+
     }
     
     
@@ -57,5 +70,38 @@ class ViewController: UIViewController {
     
     }
     
+    
+    
+    //private
+    func setFontForButtonWithTag(_ tag: Int){
+        let buttons: [UIButton] = [guestButton, employeeButton, managerButton, vendorButton]
+        
+        let selectedColor = UIColor.white
+        let notSelectedColor = UIColor(red: 208/255, green: 192/255, blue: 223/255, alpha: 1.0)
+        
+        setFontForEntrantTypeButtons(tag: tag, buttons: buttons, selectedColor: selectedColor, notSelectedColor: notSelectedColor, fontSize: CGFloat(24))
+    }
+    
+    func setFontForEntrantTypeButtons(tag: Int, buttons: [UIButton], selectedColor: UIColor, notSelectedColor: UIColor, fontSize: CGFloat){
+        
+        for i in 0..<buttons.count {
+            if i == tag {
+                buttons[i].setTitleColor(selectedColor, for: .normal)
+                buttons[i].titleLabel?.font = UIFont.boldSystemFont(ofSize: fontSize)
+                
+            } else {
+                buttons[i].setTitleColor(notSelectedColor, for: .normal)
+                buttons[i].titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+            }
+        }
+        
+    }
 }
 
+
+enum EntrantTypeButtonTitles: String {
+    case guest = "Guest"
+    case employee = "Employee"
+    case manager = "Manager"
+    case vendor = "Vendor"
+}
