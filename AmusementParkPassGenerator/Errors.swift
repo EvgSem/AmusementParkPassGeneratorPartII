@@ -12,6 +12,8 @@ enum DataError: Error {
     case cityMissing
     case stateMissing
     case zipCodeMissing
+    case dateOfVisitMissing
+    case vendorCompanyMissing
     case passNotCreated
 }
 
@@ -41,6 +43,11 @@ extension DataError: LocalizedError {
             return NSLocalizedString("Error. Zip Code missing.", comment: "DataError")
         case .passNotCreated:
             return NSLocalizedString("Error. Pass was not created", comment: "DataError")
+        case .dateOfVisitMissing:
+            return NSLocalizedString("Error. Date of Visit missing.", comment: "DataError")
+        case .vendorCompanyMissing:
+            return NSLocalizedString("Error. Vendor company name missing.", comment: "DataError")
+
         }
     }
 }

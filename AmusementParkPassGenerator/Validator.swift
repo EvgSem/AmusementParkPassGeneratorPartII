@@ -27,7 +27,37 @@ class Validator {
                     throw DataError.freeChildGuestAgeAboveLimit
                 }
             }
-        case .employee(type: .foodServices), .employee(type: .rideServices), .employee(type: .maintenance), .employee(type: .manager):
+        case .guest(type: .seasonPass) :
+            if requiredInfo.contains(.firstName) && prividedInfo.firstName == nil {
+                throw DataError.firstNameMissing
+            }
+            if requiredInfo.contains(.lastName) && prividedInfo.lastName == nil {
+                throw DataError.lastNameMissing
+            }
+            if requiredInfo.contains(.streetAddress) && prividedInfo.streetAddress == nil {
+                throw DataError.streetAddressMissing
+            }
+            if requiredInfo.contains(.city) && prividedInfo.city == nil {
+                throw DataError.cityMissing
+            }
+            if requiredInfo.contains(.zip) && prividedInfo.zipCode == nil {
+                throw DataError.zipCodeMissing
+            }
+            if requiredInfo.contains(.state) && prividedInfo.state == nil {
+                throw DataError.stateMissing
+            }
+        case .guest(type: .senior) :
+            if requiredInfo.contains(.firstName) && prividedInfo.firstName == nil {
+                throw DataError.firstNameMissing
+            }
+            if requiredInfo.contains(.lastName) && prividedInfo.lastName == nil {
+                throw DataError.lastNameMissing
+            }
+            if requiredInfo.contains(.dateOfBirth) && prividedInfo.dateOfBirth == nil {
+                throw DataError.birthDateMissing
+            }
+            
+        case .employee(type: .foodServices), .employee(type: .rideServices), .employee(type: .maintenance), .employee(type: .contract):
                 if requiredInfo.contains(.firstName) && prividedInfo.firstName == nil {
                     throw DataError.firstNameMissing
                 }
@@ -46,9 +76,41 @@ class Validator {
                 if requiredInfo.contains(.state) && prividedInfo.state == nil {
                     throw DataError.stateMissing
                 }
-                if requiredInfo.contains(.dateOfBirth) && prividedInfo.dateOfBirth == nil {
-                    throw DataError.birthDateMissing
-                }
+        case .manager:
+            if requiredInfo.contains(.firstName) && prividedInfo.firstName == nil {
+                throw DataError.firstNameMissing
+            }
+            if requiredInfo.contains(.lastName) && prividedInfo.lastName == nil {
+                throw DataError.lastNameMissing
+            }
+            if requiredInfo.contains(.streetAddress) && prividedInfo.streetAddress == nil {
+                throw DataError.streetAddressMissing
+            }
+            if requiredInfo.contains(.city) && prividedInfo.city == nil {
+                throw DataError.cityMissing
+            }
+            if requiredInfo.contains(.zip) && prividedInfo.zipCode == nil {
+                throw DataError.zipCodeMissing
+            }
+            if requiredInfo.contains(.state) && prividedInfo.state == nil {
+                throw DataError.stateMissing
+            }
+            if requiredInfo.contains(.dateOfBirth) && prividedInfo.dateOfBirth == nil {
+                throw DataError.birthDateMissing
+            }
+        case .vendor:
+            if requiredInfo.contains(.firstName) && prividedInfo.firstName == nil {
+                throw DataError.firstNameMissing
+            }
+            if requiredInfo.contains(.lastName) && prividedInfo.lastName == nil {
+                throw DataError.lastNameMissing
+            }
+            if requiredInfo.contains(.dateOfVisit) && prividedInfo.dateOfVisit == nil {
+                throw DataError.dateOfVisitMissing
+            }
+            if requiredInfo.contains(.vendorCompany) && prividedInfo.vendorCompany == nil {
+                throw DataError.vendorCompanyMissing
+            }
         default: return
         }
     }

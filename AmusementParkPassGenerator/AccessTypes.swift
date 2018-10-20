@@ -16,6 +16,7 @@ enum AreaAccess: Access {
 enum RideAccess: Access {
     case allRides
     case skipAllLines
+    case seeEntrantAccessRules
 }
 
 enum DiscountAccess: Access, Equatable {
