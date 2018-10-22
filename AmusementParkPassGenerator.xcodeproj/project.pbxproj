@@ -17,6 +17,7 @@
 		C70CCA472156F328009A7A62 /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70CCA462156F328009A7A62 /* PersonalInfo.swift */; };
 		C70CCA4921588F99009A7A62 /* AccessTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70CCA4821588F99009A7A62 /* AccessTypes.swift */; };
 		C70CCA4B21589FA2009A7A62 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70CCA4A21589FA2009A7A62 /* Errors.swift */; };
+		C7AEC250217D9CC400EB0F19 /* CreateNewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AEC24F217D9CC400EB0F19 /* CreateNewPassViewController.swift */; };
 		C7C8BF942159AE79006CAF4B /* Swiper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C8BF932159AE79006CAF4B /* Swiper.swift */; };
 		C7C8BF96215AB96C006CAF4B /* AmusementPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C8BF95215AB96C006CAF4B /* AmusementPark.swift */; };
 		C7C8BF98215AD058006CAF4B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C8BF97215AD058006CAF4B /* Validator.swift */; };
@@ -38,6 +39,7 @@
 		C70CCA462156F328009A7A62 /* PersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		C70CCA4821588F99009A7A62 /* AccessTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTypes.swift; sourceTree = "<group>"; };
 		C70CCA4A21589FA2009A7A62 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		C7AEC24F217D9CC400EB0F19 /* CreateNewPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPassViewController.swift; sourceTree = "<group>"; };
 		C7C8BF932159AE79006CAF4B /* Swiper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swiper.swift; sourceTree = "<group>"; };
 		C7C8BF95215AB96C006CAF4B /* AmusementPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmusementPark.swift; sourceTree = "<group>"; };
 		C7C8BF97215AD058006CAF4B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				C70CCA462156F328009A7A62 /* PersonalInfo.swift */,
 				C70CCA4A21589FA2009A7A62 /* Errors.swift */,
 				C70CCA322156C415009A7A62 /* Main.storyboard */,
+				C7AEC24F217D9CC400EB0F19 /* CreateNewPassViewController.swift */,
 				C7C8BF99215C294A006CAF4B /* Audio.swift */,
 				C70CCA352156C417009A7A62 /* Assets.xcassets */,
 				C70CCA372156C417009A7A62 /* LaunchScreen.storyboard */,
@@ -186,6 +189,7 @@
 				C70CCA4921588F99009A7A62 /* AccessTypes.swift in Sources */,
 				C7C8BF96215AB96C006CAF4B /* AmusementPark.swift in Sources */,
 				C7C8BF942159AE79006CAF4B /* Swiper.swift in Sources */,
+				C7AEC250217D9CC400EB0F19 /* CreateNewPassViewController.swift in Sources */,
 				C70CCA4B21589FA2009A7A62 /* Errors.swift in Sources */,
 				C7C8BF98215AD058006CAF4B /* Validator.swift in Sources */,
 				C70CCA472156F328009A7A62 /* PersonalInfo.swift in Sources */,

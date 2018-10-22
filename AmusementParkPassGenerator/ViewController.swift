@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var entrantSubTypeStackView: UIStackView!
     
+    var selectedEntrantTypeButton = EntrantTypeButtonTitles.guest
+    
     let amusementPark = AmusementPark()
     
     override func viewDidLoad() {
@@ -78,6 +80,10 @@ class ViewController: UIViewController {
         
         let selectedColor = UIColor.white
         let notSelectedColor = UIColor(red: 208/255, green: 192/255, blue: 223/255, alpha: 1.0)
+        
+        
+        selectedEntrantTypeButton = EntrantTypeButtonTitles.guest
+
         
         setFontForEntrantTypeButtons(tag: tag, buttons: buttons, selectedColor: selectedColor, notSelectedColor: notSelectedColor, fontSize: CGFloat(24))
     }
