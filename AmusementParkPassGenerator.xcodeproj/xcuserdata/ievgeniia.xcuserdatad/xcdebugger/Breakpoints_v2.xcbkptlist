@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/ViewController.swift"
-            timestampString = "561703926.791312"
+            timestampString = "561867762.397176"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "EntrantTypeButtonTitles"
             landmarkType = "13">
          </BreakpointContent>
