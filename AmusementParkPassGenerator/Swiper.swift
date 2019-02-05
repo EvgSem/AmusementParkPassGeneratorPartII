@@ -55,17 +55,15 @@ class SwipeArea: Swipable {
     
     func swipeMessage(isAccessable: Bool, pass: EntrantPass) -> String {
         accessGranted = isAccessable
-        var birthdayGreeting = ""
+        var greetingMessage = ""
         if pass.isBirthday {
-            birthdayGreeting = "Happy birthday!"
+            greetingMessage = "Happy birthday!"
         }
         SoundEffectsPalyer.playSound(for: self)
         if isAccessable {
-            print("Welcome! \(birthdayGreeting)")
-            return "Welcome! \(birthdayGreeting)"
+            return "Access allowed. \(greetingMessage)"
         }
-        print("\(birthdayGreeting) Sorry, You do not have an access here.")
-        return "\(birthdayGreeting) Sorry, You do not have an access here."
+        return "Access denied."
     }
 }
 
@@ -90,11 +88,105 @@ class RideSwiper: SwipeArea {
     }
 }
 
-class SkipLineSwiper: SwipeArea {
+class KitchenSwiper: SwipeArea {
+    
+    var kitchenName: String
+    
+    init(kitchenName: String){
+        self.kitchenName = kitchenName
+        super.init(accessType: AreaAccess.kitchenAreas)
+        self.description = "Restaurant checks kitchen Areas"
+    }
+    
+    override func swipe(pass: EntrantPass) throws -> String {
+        
+        guard let accessType = self.accessType as? AreaAccess  else {
+            throw DataError.missingAccess
+        }
+        
+        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+    }
+}
+
+class MaintenanceSwiper: SwipeArea {
+    
+    init(){
+        super.init(accessType: AreaAccess.maintenanceAreas)
+        self.description = "Maintenance area"
+    }
+    
+    override func swipe(pass: EntrantPass) throws -> String {
+        
+        guard let accessType = self.accessType as? AreaAccess  else {
+            throw DataError.missingAccess
+        }
+        
+        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+    }
+}
+
+class SeeEntrantAccessRulesSwiper: SwipeArea {
+    
+    init(){
+        super.init(accessType: RideAccess.seeEntrantAccessRules)
+        self.description = "See Entrant Access Rules"
+    }
+    
+    override func swipe(pass: EntrantPass) throws -> String {
+        
+        guard let accessType = self.accessType as? RideAccess  else {
+            throw DataError.missingAccess
+        }
+        
+        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+    }
+}
+
+
+
+class OfficeSwiper: SwipeArea {
+    
+    var officeName: String
+    
+    init(officeName: String){
+        self.officeName = officeName
+        super.init(accessType: AreaAccess.officeAreas)
+        self.description = "Main office checks Office Areas"
+    }
+    
+    override func swipe(pass: EntrantPass) throws -> String {
+        
+        guard let accessType = self.accessType as? AreaAccess  else {
+            throw DataError.missingAccess
+        }
+        
+        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+    }
+}
+
+class RideControllSwiper: SwipeArea {
+    
     var rideName: String
     
     init(rideName: String){
         self.rideName = rideName
+        super.init(accessType: AreaAccess.rideControlAreas)
+        self.description = "Everest ride checks Ride control areas"
+    }
+    
+    override func swipe(pass: EntrantPass) throws -> String {
+        
+        guard let accessType = self.accessType as? AreaAccess  else {
+            throw DataError.missingAccess
+        }
+        
+        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+    }
+}
+
+class SkipLineSwiper: SwipeArea {
+    
+    init(){
         super.init(accessType: RideAccess.skipAllLines)
         self.description = "SkipLineSwiper checks SkipAllLines Access"
     }
@@ -125,13 +217,26 @@ class AmusementAreaSwiper: SwipeArea {
 }
 
 
-class DiscountSwiper: SwipeArea {
-    var discountName: String
+class DiscountOnFoodSwiper: SwipeArea {
     
-    init(discountName: String){
-        self.discountName = discountName
-        super.init(accessType: DiscountAccess.onFood(percentage: 15))
-        self.description = "DiscountSwiper checks DicountOnFood for 15% Access"
+    init(dicount: Int){
+        super.init(accessType: DiscountAccess.onFood(percentage: dicount))
+        self.description = "DiscountSwiper checks DicountOnFood for \(dicount)% Access"
+    }
+    
+    override func swipe(pass: EntrantPass) throws -> String {
+        guard let accessType = self.accessType as? DiscountAccess  else {
+            throw DataError.missingAccess
+        }
+        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType})&&isPassValidNow(pass), pass: pass)
+    }
+}
+
+class DiscountOnMerchSwiper: SwipeArea {
+    
+    init(dicount: Int){
+        super.init(accessType: DiscountAccess.onMenchandise(percentage: dicount))
+        self.description = "DiscountSwiper checks DicountOnMerch for \(dicount))% Access"
     }
     
     override func swipe(pass: EntrantPass) throws -> String {

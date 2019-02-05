@@ -10,6 +10,21 @@ enum AreaAccess: Access {
     case rideControlAreas
     case maintenanceAreas
     case officeAreas
+    
+    var title: String {
+        switch self {
+        case .amusementAreas:
+            return "Amusement Areas"
+        case .kitchenAreas:
+            return "Kitchen Areas"
+        case .rideControlAreas:
+            return "Ride Control Areas"
+        case .maintenanceAreas:
+            return "Maintenance Areas"
+        case .officeAreas:
+            return "Office Areas"
+        }
+    }
 }
 
 
@@ -17,11 +32,31 @@ enum RideAccess: Access {
     case allRides
     case skipAllLines
     case seeEntrantAccessRules
+    
+    var title: String {
+        switch self {
+        case .allRides:
+            return "All Rides"
+        case .skipAllLines:
+            return "Skip all Lines"
+        case .seeEntrantAccessRules:
+            return "See Entrant Access Rules"
+        }
+    }
 }
 
 enum DiscountAccess: Access, Equatable {
     case onFood(percentage: Int)
     case onMenchandise(percentage: Int)
+    
+    var title: String {
+        switch self {
+        case let .onFood(percentage):
+            return "On Food - \(percentage)%"
+        case let .onMenchandise(percentage):
+            return "On menchandise - \(percentage)%"
+        }
+    }
     
     public static func ==(lhs: DiscountAccess, rhs: DiscountAccess) -> Bool {
         switch (lhs, rhs) {
@@ -32,6 +67,7 @@ enum DiscountAccess: Access, Equatable {
             return false
         }
     }
+    
 }
 
 

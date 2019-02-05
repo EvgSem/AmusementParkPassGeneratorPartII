@@ -78,7 +78,7 @@ enum EntrantType {
         case .guest(let type):
             switch type{
             case .classic: return []
-            case .vip: return [.onFood(percentage: 10)]
+            case .vip: return [.onFood(percentage: 10), .onMenchandise(percentage: 10)]
             case .freeChild: return []
             case .seasonPass: return [.onFood(percentage: 10), .onMenchandise(percentage: 20)]
             case .senior: return [.onFood(percentage: 10), .onMenchandise(percentage: 10)]
@@ -119,6 +119,28 @@ enum EntrantType {
             }
             case .manager: return [.firstName, .lastName, .streetAddress, .city, .state, .zip]
             case .vendor: return [.firstName, .lastName, .vendorCompany, .dateOfVisit]
+        }
+    }
+    
+    var name: String {
+        switch self {
+        case .guest(let type):
+            switch type{
+            case .classic: return "Adult Guest Pass"
+            case .vip: return "VIP Guest Pass"
+            case .freeChild: return "Child Guest Pass"
+            case .seasonPass: return "Season Guest Pass"
+            case .senior: return "Senior Guest Pass"
+            }
+        case .employee(let type):
+            switch type{
+            case .foodServices: return "Food services Employee Pass"
+            case .rideServices: return "RideServices Employee Pass"
+            case .maintenance: return "Maintenance Employee Pass"
+            case .contract: return "Contract Employee Pass"
+        }
+        case .manager: return "Manager Pass"
+        case .vendor: return "Vendor Pass"
         }
     }
     
