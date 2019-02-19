@@ -38,13 +38,12 @@ class SwipeArea: Swipable {
     
     func fiveSecondsPassed(from date: Date) -> Bool {
         
-        let startDate = Date()
-        let endDate = date
+        let startDate = date
+        let endDate = Date()
         let difference = Calendar.current.dateComponents([.second], from: startDate, to: endDate)
         if difference.second! > 5 {
            return true
         } else {
-            print("5 seconds interval did not pass")
             return false
         }
     }
@@ -53,17 +52,22 @@ class SwipeArea: Swipable {
         return ""
     }
     
-    func swipeMessage(isAccessable: Bool, pass: EntrantPass) -> String {
+    func swipeMessage(isAccessable: Bool, isPassValidNow: Bool, pass: EntrantPass) -> String {
         accessGranted = isAccessable
+        
+        if !isPassValidNow {
+            return "Access denied. 5 seconds interval did not pass."
+        }
+        
         var greetingMessage = ""
         if pass.isBirthday {
             greetingMessage = "Happy birthday!"
         }
         SoundEffectsPalyer.playSound(for: self)
         if isAccessable {
-            return "Access allowed. \(greetingMessage)"
+            return "Access allowed! \(greetingMessage)"
         }
-        return "Access denied."
+        return "Access denied"
     }
 }
 
@@ -82,8 +86,7 @@ class RideSwiper: SwipeArea {
         guard let accessType = self.accessType as? RideAccess  else {
             throw DataError.missingAccess
         }
-
-        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType), isPassValidNow: isPassValidNow(pass), pass: pass)
         
     }
 }
@@ -104,7 +107,7 @@ class KitchenSwiper: SwipeArea {
             throw DataError.missingAccess
         }
         
-        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType), isPassValidNow: isPassValidNow(pass), pass: pass)
     }
 }
 
@@ -121,13 +124,13 @@ class MaintenanceSwiper: SwipeArea {
             throw DataError.missingAccess
         }
         
-        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType), isPassValidNow: isPassValidNow(pass), pass: pass)
     }
 }
 
 class SeeEntrantAccessRulesSwiper: SwipeArea {
     
-    init(){
+    init() {
         super.init(accessType: RideAccess.seeEntrantAccessRules)
         self.description = "See Entrant Access Rules"
     }
@@ -138,7 +141,7 @@ class SeeEntrantAccessRulesSwiper: SwipeArea {
             throw DataError.missingAccess
         }
         
-        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType), isPassValidNow: isPassValidNow(pass), pass: pass)
     }
 }
 
@@ -160,7 +163,7 @@ class OfficeSwiper: SwipeArea {
             throw DataError.missingAccess
         }
         
-        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType), isPassValidNow: isPassValidNow(pass), pass: pass)
     }
 }
 
@@ -180,7 +183,7 @@ class RideControllSwiper: SwipeArea {
             throw DataError.missingAccess
         }
         
-        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType), isPassValidNow: isPassValidNow(pass), pass: pass)
     }
 }
 
@@ -195,7 +198,7 @@ class SkipLineSwiper: SwipeArea {
         guard let accessType = self.accessType as? RideAccess  else {
             throw DataError.missingAccess
         }
-        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType), isPassValidNow: isPassValidNow(pass), pass: pass)
     }
 }
 
@@ -212,7 +215,7 @@ class AmusementAreaSwiper: SwipeArea {
         guard let accessType = self.accessType as? AreaAccess  else {
             throw DataError.missingAccess
         }
-        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType)&&isPassValidNow(pass), pass: pass)
+        return swipeMessage(isAccessable: pass.areaAccess.contains(accessType), isPassValidNow: isPassValidNow(pass), pass: pass)
     }
 }
 
@@ -228,7 +231,7 @@ class DiscountOnFoodSwiper: SwipeArea {
         guard let accessType = self.accessType as? DiscountAccess  else {
             throw DataError.missingAccess
         }
-        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType})&&isPassValidNow(pass), pass: pass)
+        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType}), isPassValidNow: isPassValidNow(pass), pass: pass)
     }
 }
 
@@ -243,6 +246,6 @@ class DiscountOnMerchSwiper: SwipeArea {
         guard let accessType = self.accessType as? DiscountAccess  else {
             throw DataError.missingAccess
         }
-        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType})&&isPassValidNow(pass), pass: pass)
+        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType}), isPassValidNow: isPassValidNow(pass), pass: pass)
     }
 }

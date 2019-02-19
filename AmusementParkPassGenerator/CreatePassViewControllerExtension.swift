@@ -1,6 +1,6 @@
 import Foundation
 
-extension ViewController {
+extension CreatePassViewController {
     
     
     func guestAdultConfiguration() {

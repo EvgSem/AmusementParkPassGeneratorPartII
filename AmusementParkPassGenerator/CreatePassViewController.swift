@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class CreatePassViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var guestButton: UIButton!
     @IBOutlet weak var employeeButton: UIButton!
@@ -51,7 +51,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(ViewController.dismissPicker))
+        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(CreatePassViewController.dismissPicker))
         
         dateOfBirthTextInput.inputAccessoryView = toolBar
         dateOfVisitTextInput.inputAccessoryView = toolBar
@@ -197,8 +197,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-        let storyboard = UIStoryboard(name: "CreateNewPass", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "CreateNewPassVC") as! CreateNewPassViewController
+        let storyboard = UIStoryboard(name: "Pass", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "CreateNewPassVC") as! PassViewController
         try! controller.entrantPass = EntrantPass(entrantType: selectedEntrantType, providedPersonalInfo: personalInfo)
         self.present(controller, animated: true, completion: nil)
     }

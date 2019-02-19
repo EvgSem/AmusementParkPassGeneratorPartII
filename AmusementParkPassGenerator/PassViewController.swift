@@ -1,6 +1,6 @@
 import UIKit
 
-class CreateNewPassViewController: UIViewController {
+class PassViewController: UIViewController {
     
     
     @IBOutlet weak var passDecorationView: UIView!
@@ -34,6 +34,7 @@ class CreateNewPassViewController: UIViewController {
     @IBOutlet weak var createNewPassButton: UIButton!
     
     var entrantPass: EntrantPass?
+    let accessTest = AccessTesting()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,7 @@ class CreateNewPassViewController: UIViewController {
     
     @IBAction func createNewPassButton(_ sender: Any) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "GeneratePass") as? ViewController
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "GeneratePass") as? CreatePassViewController
         if let viewController = viewController {
             present(viewController, animated: true, completion: nil)
         }
@@ -95,7 +96,7 @@ class CreateNewPassViewController: UIViewController {
         }
         
         let tag = button.tag
-        let accessTest = AccessTesting()
+        
         accessTestinResultLabel.text = accessTest.test(entrantPass: entrantPass!, accessTag: tag)
     }
 

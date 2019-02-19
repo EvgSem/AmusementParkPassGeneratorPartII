@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create New Pass View Controller-->
+        <!--Pass View Controller-->
         <scene sceneID="fV7-fB-Ciw">
             <objects>
-                <viewController restorationIdentifier="CreateNewPassVC" storyboardIdentifier="CreateNewPassVC" id="LbX-u5-sLo" customClass="CreateNewPassViewController" customModule="AmusementParkPassGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="CreateNewPassVC" storyboardIdentifier="CreateNewPassVC" id="LbX-u5-sLo" customClass="PassViewController" customModule="AmusementParkPassGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cOl-kh-9vi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

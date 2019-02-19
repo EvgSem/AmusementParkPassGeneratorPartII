@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C70CCA2F2156C415009A7A62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70CCA2E2156C415009A7A62 /* AppDelegate.swift */; };
-		C70CCA312156C415009A7A62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70CCA302156C415009A7A62 /* ViewController.swift */; };
+		C70CCA312156C415009A7A62 /* CreatePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70CCA302156C415009A7A62 /* CreatePassViewController.swift */; };
 		C70CCA342156C415009A7A62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70CCA322156C415009A7A62 /* Main.storyboard */; };
 		C70CCA362156C417009A7A62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C70CCA352156C417009A7A62 /* Assets.xcassets */; };
 		C70CCA392156C417009A7A62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70CCA372156C417009A7A62 /* LaunchScreen.storyboard */; };
@@ -19,11 +19,11 @@
 		C70CCA4B21589FA2009A7A62 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70CCA4A21589FA2009A7A62 /* Errors.swift */; };
 		C76987AD21FF93E000ABE759 /* AccessTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76987AC21FF93E000ABE759 /* AccessTesting.swift */; };
 		C76987AF2203BA4D00ABE759 /* ExtensionToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76987AE2203BA4D00ABE759 /* ExtensionToolBar.swift */; };
-		C76987B12203BB8900ABE759 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76987B02203BB8900ABE759 /* ViewControllerExtension.swift */; };
+		C76987B12203BB8900ABE759 /* CreatePassViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76987B02203BB8900ABE759 /* CreatePassViewControllerExtension.swift */; };
 		C76987B322078D1200ABE759 /* DataPopulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76987B222078D1200ABE759 /* DataPopulation.swift */; };
 		C76987B5220F934F00ABE759 /* ValidatorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76987B4220F934F00ABE759 /* ValidatorExtension.swift */; };
-		C79D3CB821813C2700195AE6 /* CreateNewPass.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79D3CB621813C2700195AE6 /* CreateNewPass.storyboard */; };
-		C7AEC250217D9CC400EB0F19 /* CreateNewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AEC24F217D9CC400EB0F19 /* CreateNewPassViewController.swift */; };
+		C79D3CB821813C2700195AE6 /* Pass.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79D3CB621813C2700195AE6 /* Pass.storyboard */; };
+		C7AEC250217D9CC400EB0F19 /* PassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AEC24F217D9CC400EB0F19 /* PassViewController.swift */; };
 		C7C8BF942159AE79006CAF4B /* Swiper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C8BF932159AE79006CAF4B /* Swiper.swift */; };
 		C7C8BF98215AD058006CAF4B /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C8BF97215AD058006CAF4B /* Validator.swift */; };
 		C7C8BF9A215C294B006CAF4B /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C8BF99215C294A006CAF4B /* Audio.swift */; };
@@ -34,7 +34,7 @@
 /* Begin PBXFileReference section */
 		C70CCA2B2156C415009A7A62 /* AmusementParkPassGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmusementParkPassGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70CCA2E2156C415009A7A62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C70CCA302156C415009A7A62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C70CCA302156C415009A7A62 /* CreatePassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePassViewController.swift; sourceTree = "<group>"; };
 		C70CCA332156C415009A7A62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C70CCA352156C417009A7A62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C70CCA382156C417009A7A62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,11 +46,11 @@
 		C70CCA4A21589FA2009A7A62 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		C76987AC21FF93E000ABE759 /* AccessTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTesting.swift; sourceTree = "<group>"; };
 		C76987AE2203BA4D00ABE759 /* ExtensionToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionToolBar.swift; sourceTree = "<group>"; };
-		C76987B02203BB8900ABE759 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		C76987B02203BB8900ABE759 /* CreatePassViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePassViewControllerExtension.swift; sourceTree = "<group>"; };
 		C76987B222078D1200ABE759 /* DataPopulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPopulation.swift; sourceTree = "<group>"; };
 		C76987B4220F934F00ABE759 /* ValidatorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorExtension.swift; sourceTree = "<group>"; };
-		C79D3CB721813C2700195AE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AmusementParkPassGenerator/Base.lproj/CreateNewPass.storyboard; sourceTree = "<group>"; };
-		C7AEC24F217D9CC400EB0F19 /* CreateNewPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPassViewController.swift; sourceTree = "<group>"; };
+		C79D3CB721813C2700195AE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AmusementParkPassGenerator/Base.lproj/Pass.storyboard; sourceTree = "<group>"; };
+		C7AEC24F217D9CC400EB0F19 /* PassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassViewController.swift; sourceTree = "<group>"; };
 		C7C8BF932159AE79006CAF4B /* Swiper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swiper.swift; sourceTree = "<group>"; };
 		C7C8BF97215AD058006CAF4B /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		C7C8BF99215C294A006CAF4B /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
@@ -90,10 +90,9 @@
 			children = (
 				C7C8BF9B215C2AB8006CAF4B /* Resources */,
 				C70CCA2E2156C415009A7A62 /* AppDelegate.swift */,
-				C70CCA302156C415009A7A62 /* ViewController.swift */,
-				C76987B02203BB8900ABE759 /* ViewControllerExtension.swift */,
-				C76987AE2203BA4D00ABE759 /* ExtensionToolBar.swift */,
-				C7AEC24F217D9CC400EB0F19 /* CreateNewPassViewController.swift */,
+				C70CCA302156C415009A7A62 /* CreatePassViewController.swift */,
+				C76987B02203BB8900ABE759 /* CreatePassViewControllerExtension.swift */,
+				C7AEC24F217D9CC400EB0F19 /* PassViewController.swift */,
 				C76987B222078D1200ABE759 /* DataPopulation.swift */,
 				C70CCA402156CCA9009A7A62 /* BusinessRules.swift */,
 				C7C8BF932159AE79006CAF4B /* Swiper.swift */,
@@ -104,8 +103,9 @@
 				C70CCA422156D275009A7A62 /* Entrant.swift */,
 				C70CCA462156F328009A7A62 /* PersonalInfo.swift */,
 				C70CCA4A21589FA2009A7A62 /* Errors.swift */,
+				C76987AE2203BA4D00ABE759 /* ExtensionToolBar.swift */,
 				C70CCA322156C415009A7A62 /* Main.storyboard */,
-				C79D3CB621813C2700195AE6 /* CreateNewPass.storyboard */,
+				C79D3CB621813C2700195AE6 /* Pass.storyboard */,
 				C7C8BF99215C294A006CAF4B /* Audio.swift */,
 				C70CCA352156C417009A7A62 /* Assets.xcassets */,
 				C70CCA372156C417009A7A62 /* LaunchScreen.storyboard */,
@@ -183,7 +183,7 @@
 			files = (
 				C7C8BF9E215C2AC8006CAF4B /* AccessGranted.wav in Resources */,
 				C70CCA392156C417009A7A62 /* LaunchScreen.storyboard in Resources */,
-				C79D3CB821813C2700195AE6 /* CreateNewPass.storyboard in Resources */,
+				C79D3CB821813C2700195AE6 /* Pass.storyboard in Resources */,
 				C70CCA362156C417009A7A62 /* Assets.xcassets in Resources */,
 				C7C8BF9F215C2AC8006CAF4B /* AccessDenied.wav in Resources */,
 				C70CCA342156C415009A7A62 /* Main.storyboard in Resources */,
@@ -204,12 +204,12 @@
 				C76987B322078D1200ABE759 /* DataPopulation.swift in Sources */,
 				C7C8BF9A215C294B006CAF4B /* Audio.swift in Sources */,
 				C76987B5220F934F00ABE759 /* ValidatorExtension.swift in Sources */,
-				C70CCA312156C415009A7A62 /* ViewController.swift in Sources */,
+				C70CCA312156C415009A7A62 /* CreatePassViewController.swift in Sources */,
 				C70CCA2F2156C415009A7A62 /* AppDelegate.swift in Sources */,
 				C70CCA4921588F99009A7A62 /* AccessTypes.swift in Sources */,
-				C76987B12203BB8900ABE759 /* ViewControllerExtension.swift in Sources */,
+				C76987B12203BB8900ABE759 /* CreatePassViewControllerExtension.swift in Sources */,
 				C7C8BF942159AE79006CAF4B /* Swiper.swift in Sources */,
-				C7AEC250217D9CC400EB0F19 /* CreateNewPassViewController.swift in Sources */,
+				C7AEC250217D9CC400EB0F19 /* PassViewController.swift in Sources */,
 				C70CCA4B21589FA2009A7A62 /* Errors.swift in Sources */,
 				C7C8BF98215AD058006CAF4B /* Validator.swift in Sources */,
 				C70CCA472156F328009A7A62 /* PersonalInfo.swift in Sources */,
@@ -235,12 +235,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		C79D3CB621813C2700195AE6 /* CreateNewPass.storyboard */ = {
+		C79D3CB621813C2700195AE6 /* Pass.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C79D3CB721813C2700195AE6 /* Base */,
 			);
-			name = CreateNewPass.storyboard;
+			name = Pass.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
