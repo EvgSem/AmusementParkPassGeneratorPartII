@@ -36,8 +36,8 @@ class EntrantPass: SwipeItemProtocol {
         self.discountAccess = entrantType.discountAccess
         self.requaredPersonalInfo = entrantType.requaredPersonalInfo
         
-        let validator = Validator()
-        try validator.validateProvidedPersonalInfo(entrantType: self.entrantType, prividedInfo: providedPersonalInfo)
+        let validator = Validator(entrantType:entrantType, providedInfo: providedPersonalInfo)
+        try validator.validate()
    
         self.providedPersonalInfo = providedPersonalInfo
     }

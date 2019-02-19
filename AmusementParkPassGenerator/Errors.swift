@@ -14,7 +14,15 @@ enum DataError: Error {
     case zipCodeMissing
     case dateOfVisitMissing
     case vendorCompanyMissing
+    case vendorCompanyTooLong
     case passNotCreated
+    case zipCodeTooLong
+    case zipCodeMustHaveNumbersOnly
+    case firstNameTooLong
+    case lastNameTooLong
+    case streetTooLong
+    case cityTooLong
+    case stateTooLong
 }
 
 
@@ -22,32 +30,47 @@ extension DataError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .missingPersonalInfo:
-            return NSLocalizedString("Error. Missing Personal Info.", comment: "DataError")
+            return NSLocalizedString("Missing Personal Info.", comment: "DataError")
         case .missingAccess:
-            return NSLocalizedString("Error. Missing Access.", comment: "DataError")
+            return NSLocalizedString("Missing Access.", comment: "DataError")
         case .freeChildGuestAgeAboveLimit:
-            return NSLocalizedString("Error. Free Child Guest Age is above limit.", comment: "DataError")
+            return NSLocalizedString("Free Child Guest Age is above limit.", comment: "DataError")
         case .birthDateMissing:
-            return NSLocalizedString("Error. Date of birth missing.", comment: "DataError")
+            return NSLocalizedString("Date of birth missing.", comment: "DataError")
         case .lastNameMissing:
-            return NSLocalizedString("Error. Last name missing.", comment: "DataError")
+            return NSLocalizedString("Last name missing.", comment: "DataError")
         case .firstNameMissing:
-            return NSLocalizedString("Error. First name missing.", comment: "DataError")
+            return NSLocalizedString("First name missing.", comment: "DataError")
         case .streetAddressMissing:
-            return NSLocalizedString("Error. Street address missing.", comment: "DataError")
+            return NSLocalizedString("Street address missing.", comment: "DataError")
         case .cityMissing:
-            return NSLocalizedString("Error. City missing.", comment: "DataError")
+            return NSLocalizedString("City missing.", comment: "DataError")
         case .stateMissing:
-            return NSLocalizedString("Error. State missing.", comment: "DataError")
+            return NSLocalizedString("State missing.", comment: "DataError")
         case .zipCodeMissing:
-            return NSLocalizedString("Error. Zip Code missing.", comment: "DataError")
+            return NSLocalizedString("Zip Code missing.", comment: "DataError")
         case .passNotCreated:
-            return NSLocalizedString("Error. Pass was not created", comment: "DataError")
+            return NSLocalizedString("Pass was not created", comment: "DataError")
         case .dateOfVisitMissing:
-            return NSLocalizedString("Error. Date of Visit missing.", comment: "DataError")
+            return NSLocalizedString("Date of Visit missing.", comment: "DataError")
         case .vendorCompanyMissing:
-            return NSLocalizedString("Error. Vendor company name missing.", comment: "DataError")
-
+            return NSLocalizedString("Vendor company name missing.", comment: "DataError")
+        case .vendorCompanyTooLong:
+            return NSLocalizedString("Vendor company name is too long.", comment: "DataError")
+        case .zipCodeTooLong:
+            return NSLocalizedString("Zip code is too long", comment: "DataError")
+        case .zipCodeMustHaveNumbersOnly:
+            return NSLocalizedString("Zipcode must have numbers only", comment: "DataError")
+        case .firstNameTooLong:
+            return NSLocalizedString("First name is too long", comment: "DataError")
+        case .lastNameTooLong:
+            return NSLocalizedString("Last name is too long", comment: "DataError")
+        case .streetTooLong:
+            return NSLocalizedString("Street is too long", comment: "DataError")
+        case .cityTooLong:
+            return NSLocalizedString("City is too long", comment: "DataError")
+        case .stateTooLong:
+            return NSLocalizedString("State is too long", comment: "DataError")
         }
     }
 }

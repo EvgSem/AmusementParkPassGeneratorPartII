@@ -21,6 +21,7 @@
 		C76987AF2203BA4D00ABE759 /* ExtensionToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76987AE2203BA4D00ABE759 /* ExtensionToolBar.swift */; };
 		C76987B12203BB8900ABE759 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76987B02203BB8900ABE759 /* ViewControllerExtension.swift */; };
 		C76987B322078D1200ABE759 /* DataPopulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76987B222078D1200ABE759 /* DataPopulation.swift */; };
+		C76987B5220F934F00ABE759 /* ValidatorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76987B4220F934F00ABE759 /* ValidatorExtension.swift */; };
 		C79D3CB821813C2700195AE6 /* CreateNewPass.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C79D3CB621813C2700195AE6 /* CreateNewPass.storyboard */; };
 		C7AEC250217D9CC400EB0F19 /* CreateNewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AEC24F217D9CC400EB0F19 /* CreateNewPassViewController.swift */; };
 		C7C8BF942159AE79006CAF4B /* Swiper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C8BF932159AE79006CAF4B /* Swiper.swift */; };
@@ -47,6 +48,7 @@
 		C76987AE2203BA4D00ABE759 /* ExtensionToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionToolBar.swift; sourceTree = "<group>"; };
 		C76987B02203BB8900ABE759 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		C76987B222078D1200ABE759 /* DataPopulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPopulation.swift; sourceTree = "<group>"; };
+		C76987B4220F934F00ABE759 /* ValidatorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorExtension.swift; sourceTree = "<group>"; };
 		C79D3CB721813C2700195AE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AmusementParkPassGenerator/Base.lproj/CreateNewPass.storyboard; sourceTree = "<group>"; };
 		C7AEC24F217D9CC400EB0F19 /* CreateNewPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPassViewController.swift; sourceTree = "<group>"; };
 		C7C8BF932159AE79006CAF4B /* Swiper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swiper.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				C70CCA402156CCA9009A7A62 /* BusinessRules.swift */,
 				C7C8BF932159AE79006CAF4B /* Swiper.swift */,
 				C7C8BF97215AD058006CAF4B /* Validator.swift */,
+				C76987B4220F934F00ABE759 /* ValidatorExtension.swift */,
 				C76987AC21FF93E000ABE759 /* AccessTesting.swift */,
 				C70CCA4821588F99009A7A62 /* AccessTypes.swift */,
 				C70CCA422156D275009A7A62 /* Entrant.swift */,
@@ -200,6 +203,7 @@
 				C70CCA412156CCA9009A7A62 /* BusinessRules.swift in Sources */,
 				C76987B322078D1200ABE759 /* DataPopulation.swift in Sources */,
 				C7C8BF9A215C294B006CAF4B /* Audio.swift in Sources */,
+				C76987B5220F934F00ABE759 /* ValidatorExtension.swift in Sources */,
 				C70CCA312156C415009A7A62 /* ViewController.swift in Sources */,
 				C70CCA2F2156C415009A7A62 /* AppDelegate.swift in Sources */,
 				C70CCA4921588F99009A7A62 /* AccessTypes.swift in Sources */,

@@ -87,7 +87,6 @@ class CreateNewPassViewController: UIViewController {
         }
         
         listOfAccessesTitle.text = accessTitle
-        print(accessTitle)
     }
     
     @IBAction func accessButtonTest(_ sender: Any) {

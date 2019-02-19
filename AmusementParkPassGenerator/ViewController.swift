@@ -175,7 +175,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let personalInfo = Info(dateOfBirth: dateOfBirth,
                         firstName: firtsNameTextInput.text,
                         lastName: lastNameTextInput.text,
-                        streetAddress: streetAddressTitle.text,
+                        streetAddress: streetAddressTextInput.text,
                         city: cityTextInput.text,
                         state: stateTextInput.text,
                         zipCode: zipcodeTextInput.text,
@@ -187,9 +187,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         validateAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
         }))
   
-       let validator = Validator()
+       let validator = Validator(entrantType: selectedEntrantType, providedInfo: personalInfo)
         do {
-            try validator.validateProvidedPersonalInfo(entrantType: selectedEntrantType, prividedInfo: personalInfo)
+            try validator.validate()
         } catch  {
             validateAlert.message = error.localizedDescription
             present(validateAlert, animated: true, completion: nil)

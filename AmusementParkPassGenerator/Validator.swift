@@ -3,129 +3,83 @@ import Foundation
 class Validator {
     
     let validAgeForFreeChild = 5
+    let validLengthForZipCode = 6
+    let validLengthForName = 15
+    let validLengthForStreet = 20
+    let validLengthForState = 15
+    let validLengthForCity = 15
+    let validLengthForVendorCompany = 20
+    
+    var entrantType: EntrantType
+    var providedInfo: Info?
+    
+    init(entrantType: EntrantType, providedInfo: Info?) {
+        self.entrantType = entrantType
+        self.providedInfo = providedInfo
+    }
     
     
-    func validateProvidedPersonalInfo (entrantType: EntrantType, prividedInfo: Info?) throws {
+    func validate () throws {
         
         let requiredInfo = entrantType.requaredPersonalInfo
-        if requiredInfo.count == 0 && prividedInfo == nil {
+        if requiredInfo.count == 0 && providedInfo == nil {
             return
         }
         
-        guard let prividedInfo = prividedInfo else {
+        guard let prividedInfo = providedInfo else {
             throw DataError.missingPersonalInfo
         }
-        
-        
         switch entrantType {
         case .guest(type: .freeChild) :
-            if requiredInfo.contains(.dateOfBirth) && prividedInfo.dateOfBirth == nil {
-                throw DataError.birthDateMissing
-            }
-            if requiredInfo.contains(.dateOfBirth) && prividedInfo.dateOfBirth != nil {
-                if !isUnderFive(dateOfBirth: prividedInfo.dateOfBirth!) {
-                    throw DataError.freeChildGuestAgeAboveLimit
-                }
-            }
-        case .guest(type: .seasonPass) :
-            if requiredInfo.contains(.firstName) && (prividedInfo.firstName == nil || prividedInfo.firstName == "")  {
-                throw DataError.firstNameMissing
-            }
-            if requiredInfo.contains(.lastName) && (prividedInfo.lastName == nil || prividedInfo.lastName == "") {
-                throw DataError.lastNameMissing
-            }
-            if requiredInfo.contains(.streetAddress) && (prividedInfo.streetAddress == nil || prividedInfo.streetAddress == "") {
-                throw DataError.streetAddressMissing
-            }
-            if requiredInfo.contains(.city) && (prividedInfo.city == nil || prividedInfo.city == "") {
-                throw DataError.cityMissing
-            }
-            if requiredInfo.contains(.zip) && (prividedInfo.zipCode == nil || prividedInfo.zipCode == "") {
-                throw DataError.zipCodeMissing
-            }
-            if requiredInfo.contains(.state) && (prividedInfo.state == nil || prividedInfo.state == "") {
-                throw DataError.stateMissing
-            }
-        case .guest(type: .senior) :
-            if requiredInfo.contains(.firstName) && (prividedInfo.firstName == nil || prividedInfo.firstName == "") {
-                throw DataError.firstNameMissing
-            }
-            if requiredInfo.contains(.lastName) && (prividedInfo.lastName == nil || prividedInfo.lastName == "") {
-                throw DataError.lastNameMissing
-            }
-            if requiredInfo.contains(.dateOfBirth) && prividedInfo.dateOfBirth == nil {
-                throw DataError.birthDateMissing
-            }
-            
+            try freeChildPassValidation(info: prividedInfo)
+        case .guest(type: .seasonPass):
+            try seasonPassValidation(info: prividedInfo)
+        case .guest(type: .senior):
+            try seniorPassValidation(info: prividedInfo)
         case .employee(type: .foodServices), .employee(type: .rideServices), .employee(type: .maintenance), .employee(type: .contract):
-                if requiredInfo.contains(.firstName) && (prividedInfo.firstName == nil || prividedInfo.firstName == "") {
-                    throw DataError.firstNameMissing
-                }
-                if requiredInfo.contains(.lastName) && (prividedInfo.lastName == nil || prividedInfo.lastName == "") {
-                    throw DataError.lastNameMissing
-                }
-                if requiredInfo.contains(.streetAddress) && (prividedInfo.streetAddress == nil || prividedInfo.streetAddress == "") {
-                    throw DataError.streetAddressMissing
-                }
-                if requiredInfo.contains(.city) && (prividedInfo.city == nil || prividedInfo.city == "") {
-                    throw DataError.cityMissing
-                }
-                if requiredInfo.contains(.zip) && (prividedInfo.zipCode == nil || prividedInfo.zipCode == "") {
-                    throw DataError.zipCodeMissing
-                }
-                if requiredInfo.contains(.state) && (prividedInfo.state == nil || prividedInfo.state == "") {
-                    throw DataError.stateMissing
-                }
+            try emplyeePassValidation(info: prividedInfo)
         case .manager:
-            if requiredInfo.contains(.firstName) && (prividedInfo.firstName == nil  || prividedInfo.firstName == "") {
-                throw DataError.firstNameMissing
-            }
-            if requiredInfo.contains(.lastName) && (prividedInfo.lastName == nil || prividedInfo.lastName == "") {
-                throw DataError.lastNameMissing
-            }
-            if requiredInfo.contains(.streetAddress) && (prividedInfo.streetAddress == nil || prividedInfo.streetAddress == "") {
-                throw DataError.streetAddressMissing
-            }
-            if requiredInfo.contains(.city) && (prividedInfo.city == nil || prividedInfo.city == "") {
-                throw DataError.cityMissing
-            }
-            if requiredInfo.contains(.zip) && (prividedInfo.zipCode == nil || prividedInfo.zipCode == "") {
-                throw DataError.zipCodeMissing
-            }
-            if requiredInfo.contains(.state) && (prividedInfo.state == nil || prividedInfo.state == "") {
-                throw DataError.stateMissing
-            }
-            if requiredInfo.contains(.dateOfBirth) && prividedInfo.dateOfBirth == nil {
-                throw DataError.birthDateMissing
-            }
+            try emplyeePassValidation(info: prividedInfo)
         case .vendor:
-            if requiredInfo.contains(.firstName) && (prividedInfo.firstName == nil || prividedInfo.firstName == "") {
-                throw DataError.firstNameMissing
-            }
-            if requiredInfo.contains(.lastName) && (prividedInfo.lastName == nil || prividedInfo.lastName == "") {
-                throw DataError.lastNameMissing
-            }
-            if requiredInfo.contains(.dateOfVisit) && prividedInfo.dateOfVisit == nil  {
-                throw DataError.dateOfVisitMissing
-            }
-            if requiredInfo.contains(.vendorCompany) && (prividedInfo.vendorCompany == nil || prividedInfo.city == "") {
-                throw DataError.vendorCompanyMissing
-            }
+            try vendorPassValidation(info: prividedInfo)
         default: return
         }
     }
     
-    func isUnderFive(dateOfBirth: Date) -> Bool {
+    func isUnderAge(_ age: Int, date: Date?) -> Bool {
+        guard let date = date else {
+            return false
+        }
+        
         let calendar = Calendar.current
-        let birthDateComponents = calendar.dateComponents([.year], from: dateOfBirth)
+        let birthDateComponents = calendar.dateComponents([.year], from: date)
         let currentDateComponents = calendar.dateComponents([.year], from: Date())
         
         if let currentYear = currentDateComponents.year, let birthDateYear = birthDateComponents.year {
-            if (currentYear - birthDateYear) <= validAgeForFreeChild {
+            if (currentYear - birthDateYear) <= age {
                 return true
             }
         }
         return false
+    }
+    
+    func isValid(infoName: RequiredPersonalInfo, info: String?) -> Bool {
+        let requiredInfo = entrantType.requaredPersonalInfo
+        return requiredInfo.contains(infoName) && (info == nil || info == "")
+    }
+    
+    func isLengthValid(info: String?, max: Int) -> Bool {
+        if let info = info {
+            return info.count > max
+        }
+        return true
+    }
+    
+    func isZipCodeValid(value: String?) -> Bool {
+        if let zipcode = value {
+            return !CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: zipcode))
+        }
+        return true
     }
 
     
