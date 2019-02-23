@@ -11,6 +11,8 @@ enum RequiredPersonalInfo {
     case dateOfBirth
     case dateOfVisit
     case vendorCompany
+    case projectNumber
+    case ssn
 }
 
 struct Info {
@@ -23,4 +25,6 @@ struct Info {
     var zipCode: String?
     var dateOfVisit: Date?
     var vendorCompany: String?
+    var projectNumber: String?
+    var ssn: String?
 }

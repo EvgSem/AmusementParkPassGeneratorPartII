@@ -38,7 +38,7 @@ class DataPopulation {
             personalInfo.lastName = "Pecu"
             date = formatter.date(from: "08/10/56")
             personalInfo.dateOfBirth = date
-    case .employee(type: .foodServices), .employee(type: .rideServices), .employee(type: .maintenance), .employee(type: .contract):
+    case .employee(type: .foodServices), .employee(type: .rideServices), .employee(type: .maintenance):
             personalInfo.firstName = "Max"
             personalInfo.lastName = "Pecu"
             personalInfo.streetAddress = "River Oaks Street"
@@ -52,14 +52,23 @@ class DataPopulation {
             personalInfo.zipCode = "95135"
             personalInfo.city = "San Jose"
             personalInfo.state = "California"
-        case .vendor:
-            personalInfo.firstName = "Max"
-            personalInfo.lastName = "Pecu"
-            personalInfo.vendorCompany = "Vendor Company"
-            date = formatter.date(from: "08/10/95")
-            personalInfo.dateOfBirth = date
-            personalInfo.dateOfVisit = Date()
-        default: return personalInfo
+    case .contract:
+        personalInfo.firstName = "Max"
+        personalInfo.lastName = "Pecu"
+        personalInfo.streetAddress = "River Oaks Street"
+        personalInfo.zipCode = "95135"
+        personalInfo.city = "San Jose"
+        personalInfo.state = "California"
+        personalInfo.ssn = "333-55-4444"
+        personalInfo.projectNumber = ProjectNumber._1001.rawValue
+    case .vendor:
+        personalInfo.firstName = "Max"
+        personalInfo.lastName = "Pecu"
+        personalInfo.vendorCompany = VendorCompany.acme.rawValue
+        date = formatter.date(from: "08/10/95")
+        personalInfo.dateOfBirth = date
+        personalInfo.dateOfVisit = Date()
+    default: return personalInfo
     }
         return personalInfo
     }

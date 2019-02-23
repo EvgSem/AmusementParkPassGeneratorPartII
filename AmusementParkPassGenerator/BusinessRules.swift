@@ -13,15 +13,30 @@ enum EmployeeType: Int {
     case foodServices = 1
     case rideServices
     case maintenance
-    case contract
 }
 
+enum VendorCompany: String {
+    case acme = "Acme"
+    case orkin = "Orkin"
+    case fedex = "Fedex"
+    case NWElectrical = "NW Electrical"
+}
+
+enum ProjectNumber: String {
+    case _1001 = "1001"
+    case _1002 = "1002"
+    case _1003 = "1003"
+    case _2001 = "2001"
+    case _2002 = "2002"
+    
+}
 
 enum EntrantType {
     case guest(type: GuestType)
     case employee(type: EmployeeType)
     case manager
-    case vendor
+    case vendor(company: VendorCompany)
+    case contract(projectNumber: ProjectNumber)
     
     var areaAccess: [AreaAccess] {
         switch self {
@@ -39,11 +54,26 @@ enum EntrantType {
             case .rideServices: return [.amusementAreas, .rideControlAreas]
             case .maintenance: return [.amusementAreas, .kitchenAreas, .rideControlAreas, .maintenanceAreas]
             
-            case .contract: return [.amusementAreas, .kitchenAreas]
+            
            
             }
         case .manager: return [.amusementAreas, .kitchenAreas, .rideControlAreas, .maintenanceAreas, .officeAreas]
-         case .vendor: return [.amusementAreas, .kitchenAreas]
+        case .vendor(let company):
+            switch company {
+                case .acme: return [.kitchenAreas]
+                case .orkin: return [.amusementAreas, .rideControlAreas, .kitchenAreas]
+                case .fedex: return [.maintenanceAreas, .officeAreas]
+                case .NWElectrical: return [.amusementAreas, .rideControlAreas, .kitchenAreas, .maintenanceAreas, .officeAreas]
+            }
+        case .contract(let projectNumber):
+            switch projectNumber {
+                case ._1001: return [.amusementAreas, .rideControlAreas]
+                case ._1002: return [.amusementAreas, .rideControlAreas, .maintenanceAreas]
+                case ._1003: return [.amusementAreas, .rideControlAreas, .kitchenAreas, .maintenanceAreas, .officeAreas]
+                case ._2001: return [.officeAreas]
+                case ._2002: return [.maintenanceAreas, .kitchenAreas]
+            }
+            
         }
     }
     
@@ -63,11 +93,12 @@ enum EntrantType {
             case .rideServices: return [.allRides]
             case .maintenance: return [.allRides]
             
-            case .contract: return [.seeEntrantAccessRules]
+            
             
             }
         case .manager: return [.allRides]
         case .vendor: return [.seeEntrantAccessRules]
+        case .contract: return [.seeEntrantAccessRules]
             
         }
     }
@@ -88,12 +119,10 @@ enum EntrantType {
             case .foodServices: return [.onFood(percentage: 15), .onMenchandise(percentage: 25)]
             case .rideServices: return [.onFood(percentage: 15), .onMenchandise(percentage: 25)]
             case .maintenance: return [.onFood(percentage: 15), .onMenchandise(percentage: 25)]
-            
-            case .contract: return []
             }
             case .manager: return [.onFood(percentage: 25), .onMenchandise(percentage: 25)]
             case .vendor: return []
-            
+            case .contract: return []
         }
     }
     
@@ -113,12 +142,11 @@ enum EntrantType {
             case .foodServices: return [.firstName, .lastName, .streetAddress, .city, .state, .zip]
             case .rideServices: return [.firstName, .lastName, .streetAddress, .city, .state, .zip]
             case .maintenance: return [.firstName, .lastName, .streetAddress, .city, .state, .zip]
-            
-            case .contract: return [.firstName, .lastName, .streetAddress, .city, .state, .zip]
-            
             }
-            case .manager: return [.firstName, .lastName, .streetAddress, .city, .state, .zip]
-            case .vendor: return [.firstName, .lastName, .vendorCompany, .dateOfVisit]
+        case .manager: return [.firstName, .lastName, .streetAddress, .city, .state, .zip]
+        case .vendor: return [.firstName, .lastName, .vendorCompany, .dateOfVisit, .dateOfBirth]
+        case .contract: return [.firstName, .lastName, .streetAddress, .city, .state, .zip, .ssn, .projectNumber]
+            
         }
     }
     
@@ -137,10 +165,24 @@ enum EntrantType {
             case .foodServices: return "Food services Employee Pass"
             case .rideServices: return "RideServices Employee Pass"
             case .maintenance: return "Maintenance Employee Pass"
-            case .contract: return "Contract Employee Pass"
+            
         }
         case .manager: return "Manager Pass"
-        case .vendor: return "Vendor Pass"
+        case .vendor(let company):
+            switch company {
+            case .acme: return "Vendor Pass. Company \(VendorCompany.acme.rawValue)"
+            case .orkin: return "Vendor Pass. Company \(VendorCompany.orkin.rawValue)"
+            case .fedex: return "Vendor Pass. Company \(VendorCompany.fedex.rawValue)"
+            case .NWElectrical: return "Vendor Pass. Company \(VendorCompany.NWElectrical.rawValue)"
+            }
+        case  .contract(let projectNumber):
+            switch projectNumber {
+            case ._1001: return "Contract Employee Pass. Project#: \(ProjectNumber._1001.rawValue)"
+            case ._1002: return "Contract Employee Pass. Project#: \(ProjectNumber._1002.rawValue)"
+            case ._1003: return "Contract Employee Pass. Project#: \(ProjectNumber._1003.rawValue)"
+            case ._2001: return "Contract Employee Pass. Project#: \(ProjectNumber._2001.rawValue)"
+            case ._2002: return "Contract Employee Pass. Project#: \(ProjectNumber._2002.rawValue)"
+            }
         }
     }
     

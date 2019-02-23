@@ -23,6 +23,8 @@ enum DataError: Error {
     case streetTooLong
     case cityTooLong
     case stateTooLong
+    case projectNumberMissing
+    case ssnMissing
 }
 
 
@@ -71,6 +73,10 @@ extension DataError: LocalizedError {
             return NSLocalizedString("City is too long", comment: "DataError")
         case .stateTooLong:
             return NSLocalizedString("State is too long", comment: "DataError")
+        case .projectNumberMissing:
+            return NSLocalizedString("Project Number missing.", comment: "DataError")
+        case .ssnMissing:
+            return NSLocalizedString("SSN missing.", comment: "DataError")
         }
     }
 }

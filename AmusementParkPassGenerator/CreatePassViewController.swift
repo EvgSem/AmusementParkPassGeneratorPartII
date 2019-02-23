@@ -1,6 +1,6 @@
 import UIKit
 
-class CreatePassViewController: UIViewController, UITextFieldDelegate {
+class CreatePassViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate  {
     
     @IBOutlet weak var guestButton: UIButton!
     @IBOutlet weak var employeeButton: UIButton!
@@ -14,6 +14,8 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var subType5Button: UIButton!
     @IBOutlet weak var entrantSubTypeStackView: UIStackView!
     @IBOutlet weak var dateOfBirthTitle: UILabel!
+    @IBOutlet weak var ssnTitle: UILabel!
+    @IBOutlet weak var projectNumberTitle: UILabel!
     @IBOutlet weak var lastNameTitle: UILabel!
     @IBOutlet weak var firstNameTitle: UILabel!
     @IBOutlet weak var streetAddressTitle: UILabel!
@@ -22,6 +24,8 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var zipcodeTitle: UILabel!
     @IBOutlet weak var dateOfVisitTitle: UILabel!
     @IBOutlet weak var dateOfBirthTextInput: UITextField!
+    @IBOutlet weak var ssnTextInput: UITextField!
+    @IBOutlet weak var projectNumberTextInput: UITextField!
     @IBOutlet weak var firtsNameTextInput: UITextField!
     @IBOutlet weak var lastNameTextInput: UITextField!
     @IBOutlet weak var streetAddressTextInput: UITextField!
@@ -46,7 +50,13 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     
     var selectedEntrantTypeButton = EntrantTypeButtonTitles.guest
     var selectedEntrantType = EntrantType.guest(type: GuestType.classic)
-    let datePickerView  : UIDatePicker = UIDatePicker()
+    
+    let datePickerView: UIDatePicker = UIDatePicker()
+    let vendorCompanyPickerView: UIPickerView = UIPickerView()
+    let projectNumberCompanyPickerView: UIPickerView = UIPickerView()
+    
+    let vendorCompaniesData = ["Acme", "Orkin", "Fedex", "NW Electrical"]
+    let projectNumbersData = ["1001", "1002", "1003", "2001", "2002"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +65,15 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         
         dateOfBirthTextInput.inputAccessoryView = toolBar
         dateOfVisitTextInput.inputAccessoryView = toolBar
+        vendorCompanyTextInput.inputAccessoryView = toolBar
+        projectNumberTextInput.inputAccessoryView = toolBar
+        
+        vendorCompanyTextInput.inputView = vendorCompanyPickerView
+        projectNumberTextInput.inputView = projectNumberCompanyPickerView
+        vendorCompanyPickerView.delegate = self
+        projectNumberCompanyPickerView.delegate = self
+        
+        ssnTextInput.delegate = self
         
         guestAdultConfiguration()
     }
@@ -62,6 +81,85 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == vendorCompanyPickerView {
+            return 4
+        } else if pickerView == projectNumberCompanyPickerView {
+            return 5
+        } else {
+            return 1
+        }
+        
+        
+        
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            if pickerView == vendorCompanyPickerView {
+                return vendorCompaniesData[row]
+            } else if pickerView == projectNumberCompanyPickerView {
+                return projectNumbersData[row]
+            } else {
+                return ""
+            }
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == vendorCompanyPickerView {
+            editingTextFiled = vendorCompanyTextInput
+            vendorCompanyTextInput.text = vendorCompaniesData[row]
+            setEntrantTypeForVendor(vendorCompany: vendorCompaniesData[row])
+        } else if pickerView == projectNumberCompanyPickerView {
+            editingTextFiled = projectNumberTextInput
+            projectNumberTextInput.text = projectNumbersData[row]
+            setEntrantTypeForContract(projectNumber: projectNumbersData[row])
+        }
+    }
+    
+    func setEntrantTypeForContract(projectNumber: String) {
+        guard let projectNumber = ProjectNumber(rawValue: projectNumber) else {
+            return
+        }
+        
+        switch projectNumber {
+            case ._1001:
+                selectedEntrantType = EntrantType.contract(projectNumber: ._1001)
+            case ._1002:
+                selectedEntrantType = EntrantType.contract(projectNumber: ._1002)
+            case ._1003:
+                selectedEntrantType = EntrantType.contract(projectNumber: ._1003)
+            case ._2001:
+                selectedEntrantType = EntrantType.contract(projectNumber: ._2001)
+            case ._2002:
+                selectedEntrantType = EntrantType.contract(projectNumber: ._2002)
+        }
+    }
+    
+    func setEntrantTypeForVendor(vendorCompany: String) {
+        guard let vendorCompany = VendorCompany(rawValue: vendorCompany) else {
+            return
+        }
+        
+        switch vendorCompany {
+            case .acme:
+                selectedEntrantType = EntrantType.vendor(company: .acme)
+            case .orkin:
+                selectedEntrantType = EntrantType.vendor(company: .orkin)
+            case .fedex:
+                selectedEntrantType = EntrantType.vendor(company: .fedex)
+            case .NWElectrical:
+                selectedEntrantType = EntrantType.vendor(company: .NWElectrical)
+        }
+    }
+    
+    
+    
     
     
     @IBAction func passTypeButtonTapped(_ sender: UIButton) {
@@ -102,7 +200,8 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
             selectedEntrantTypeButton = EntrantTypeButtonTitles.manager
             entrantSubTypeStackView.isHidden = true
         case .vendor:
-            selectedEntrantType = EntrantType.vendor
+            let companyName = VendorCompany(rawValue: vendorCompanyTextInput.text ?? "Acme") ?? .acme
+            selectedEntrantType = EntrantType.vendor(company: companyName)
             vendorConfiguration()
             selectedEntrantTypeButton = EntrantTypeButtonTitles.vendor
             entrantSubTypeStackView.isHidden = true
@@ -150,8 +249,8 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
                     selectedEntrantType = EntrantType.employee(type: EmployeeType.maintenance)
                     employeeConfiguration()
                 case 3:
-                    selectedEntrantType = EntrantType.employee(type: EmployeeType.contract)
-                    employeeConfiguration()
+                    selectedEntrantType = EntrantType.contract(projectNumber: ProjectNumber._1001)
+                    employeeContractConfiguration()
                 default:
                     selectedEntrantType = EntrantType.employee(type: EmployeeType.foodServices)
                     employeeConfiguration()
@@ -161,7 +260,7 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
                 selectedEntrantType = EntrantType.manager
                 employeeConfiguration()
             case .vendor:
-                selectedEntrantType = EntrantType.vendor
+                selectedEntrantType = EntrantType.vendor(company: .acme)
                 vendorConfiguration()
         }
     }
@@ -180,7 +279,9 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
                         state: stateTextInput.text,
                         zipCode: zipcodeTextInput.text,
                         dateOfVisit: dateOfVisit,
-                        vendorCompany: vendorCompanyTextInput.text)
+                        vendorCompany: vendorCompanyTextInput.text,
+                        projectNumber: projectNumberTextInput.text,
+                        ssn: ssnTextInput.text)
         
         let validateAlert = UIAlertController(title: "Missing data", message: "Some information if missing.", preferredStyle: UIAlertController.Style.alert)
         
@@ -213,12 +314,12 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func dateField(sender: UITextField) {
         editingTextFiled = sender
-       
+
         datePickerView.datePickerMode = UIDatePicker.Mode.date
         sender.delegate = self
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action:  #selector(self.handleDatePicker), for: UIControl.Event.valueChanged)
-        
+
     }
     
     @objc func handleDatePicker(sender: UIDatePicker) {
@@ -228,13 +329,30 @@ class CreatePassViewController: UIViewController, UITextFieldDelegate {
         editingTextFiled!.text = timeFormatter.string(from: sender.date)
     }
     
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let aSet = NSCharacterSet(charactersIn:"0123456789").inverted
+        let compSepByCharInSet = string.components(separatedBy: aSet)
+        let numberFiltered = compSepByCharInSet.joined(separator: "")
+        
+        guard let text = textField.text else {
+            return true
+        }
+        if text.count == 3 || text.count == 6 {
+            textField.text = "\(textField.text!)-"
+        }
+        
+        let count = text.count + string.count - range.length
+        return string == numberFiltered && count <= 11
+    }
     
     
     //private
     @objc func dismissPicker(){
         editingTextFiled?.endEditing(true)
     }
-    
+
     func stringToDate(_ stringDate: String) -> Date? {
         
         let dateFormatter = DateFormatter()

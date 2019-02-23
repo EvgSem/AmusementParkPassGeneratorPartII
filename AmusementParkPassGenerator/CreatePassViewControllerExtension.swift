@@ -7,6 +7,8 @@ extension CreatePassViewController {
         
         clearPersonalData()
         dateOfBirthTitle.textColor = disabledLabelTextColor
+        ssnTitle.textColor = disabledLabelTextColor
+        projectNumberTitle.textColor = disabledLabelTextColor
         firstNameTitle.textColor = disabledLabelTextColor
         lastNameTitle.textColor = disabledLabelTextColor
         streetAddressTitle.textColor = disabledLabelTextColor
@@ -17,6 +19,8 @@ extension CreatePassViewController {
         vendorCompanyTitle.textColor = disabledLabelTextColor
         
         dateOfBirthTextInput.isEnabled = false
+        ssnTextInput.isEnabled = false
+        projectNumberTextInput.isEnabled = false
         firtsNameTextInput.isEnabled = false
         lastNameTextInput.isEnabled = false
         streetAddressTextInput.isEnabled = false
@@ -31,6 +35,8 @@ extension CreatePassViewController {
         
         clearPersonalData()
         dateOfBirthTitle.textColor = enabledLabelTextColor
+        ssnTitle.textColor = disabledLabelTextColor
+        projectNumberTitle.textColor = disabledLabelTextColor
         firstNameTitle.textColor = disabledLabelTextColor
         lastNameTitle.textColor = disabledLabelTextColor
         streetAddressTitle.textColor = disabledLabelTextColor
@@ -41,6 +47,8 @@ extension CreatePassViewController {
         vendorCompanyTitle.textColor = disabledLabelTextColor
         
         dateOfBirthTextInput.isEnabled = true
+        ssnTextInput.isEnabled = false
+        projectNumberTextInput.isEnabled = false
         firtsNameTextInput.isEnabled = false
         lastNameTextInput.isEnabled = false
         streetAddressTextInput.isEnabled = false
@@ -56,6 +64,8 @@ extension CreatePassViewController {
         
         clearPersonalData()
         dateOfBirthTitle.textColor = enabledLabelTextColor
+        ssnTitle.textColor = disabledLabelTextColor
+        projectNumberTitle.textColor = disabledLabelTextColor
         firstNameTitle.textColor = enabledLabelTextColor
         lastNameTitle.textColor = enabledLabelTextColor
         streetAddressTitle.textColor = disabledLabelTextColor
@@ -66,6 +76,8 @@ extension CreatePassViewController {
         vendorCompanyTitle.textColor = disabledLabelTextColor
         
         dateOfBirthTextInput.isEnabled = true
+        ssnTextInput.isEnabled = false
+        projectNumberTextInput.isEnabled = false
         firtsNameTextInput.isEnabled = true
         lastNameTextInput.isEnabled = true
         streetAddressTextInput.isEnabled = false
@@ -80,6 +92,8 @@ extension CreatePassViewController {
         
         clearPersonalData()
         dateOfBirthTitle.textColor = disabledLabelTextColor
+        ssnTitle.textColor = disabledLabelTextColor
+        projectNumberTitle.textColor = disabledLabelTextColor
         firstNameTitle.textColor = enabledLabelTextColor
         lastNameTitle.textColor = enabledLabelTextColor
         streetAddressTitle.textColor = enabledLabelTextColor
@@ -90,6 +104,8 @@ extension CreatePassViewController {
         vendorCompanyTitle.textColor = disabledLabelTextColor
         
         dateOfBirthTextInput.isEnabled = false
+        ssnTextInput.isEnabled = false
+        projectNumberTextInput.isEnabled = false
         firtsNameTextInput.isEnabled = true
         lastNameTextInput.isEnabled = true
         streetAddressTextInput.isEnabled = true
@@ -105,6 +121,8 @@ extension CreatePassViewController {
         
         clearPersonalData()
         dateOfBirthTitle.textColor = disabledLabelTextColor
+        ssnTitle.textColor = disabledLabelTextColor
+        projectNumberTitle.textColor = disabledLabelTextColor
         firstNameTitle.textColor = enabledLabelTextColor
         lastNameTitle.textColor = enabledLabelTextColor
         streetAddressTitle.textColor = enabledLabelTextColor
@@ -115,6 +133,36 @@ extension CreatePassViewController {
         vendorCompanyTitle.textColor = disabledLabelTextColor
         
         dateOfBirthTextInput.isEnabled = false
+        ssnTextInput.isEnabled = false
+        projectNumberTextInput.isEnabled = false
+        firtsNameTextInput.isEnabled = true
+        lastNameTextInput.isEnabled = true
+        streetAddressTextInput.isEnabled = true
+        cityTextInput.isEnabled = true
+        stateTextInput.isEnabled = true
+        zipcodeTextInput.isEnabled = true
+        dateOfVisitTextInput.isEnabled = false
+        vendorCompanyTextInput.isEnabled = false
+    }
+    
+    func employeeContractConfiguration() {
+        
+        clearPersonalData()
+        dateOfBirthTitle.textColor = disabledLabelTextColor
+        ssnTitle.textColor = enabledLabelTextColor
+        projectNumberTitle.textColor = enabledLabelTextColor
+        firstNameTitle.textColor = enabledLabelTextColor
+        lastNameTitle.textColor = enabledLabelTextColor
+        streetAddressTitle.textColor = enabledLabelTextColor
+        cityTitle.textColor = enabledLabelTextColor
+        stateTitle.textColor = enabledLabelTextColor
+        zipcodeTitle.textColor = enabledLabelTextColor
+        dateOfVisitTitle.textColor = disabledLabelTextColor
+        vendorCompanyTitle.textColor = disabledLabelTextColor
+        
+        dateOfBirthTextInput.isEnabled = false
+        ssnTextInput.isEnabled = true
+        projectNumberTextInput.isEnabled = true
         firtsNameTextInput.isEnabled = true
         lastNameTextInput.isEnabled = true
         streetAddressTextInput.isEnabled = true
@@ -129,6 +177,8 @@ extension CreatePassViewController {
         
         clearPersonalData()
         dateOfBirthTitle.textColor = enabledLabelTextColor
+        ssnTitle.textColor = disabledLabelTextColor
+        projectNumberTitle.textColor = disabledLabelTextColor
         firstNameTitle.textColor = enabledLabelTextColor
         lastNameTitle.textColor = enabledLabelTextColor
         streetAddressTitle.textColor = disabledLabelTextColor
@@ -139,6 +189,8 @@ extension CreatePassViewController {
         vendorCompanyTitle.textColor = enabledLabelTextColor
         
         dateOfBirthTextInput.isEnabled = true
+        ssnTextInput.isEnabled = false
+        projectNumberTextInput.isEnabled = false
         firtsNameTextInput.isEnabled = true
         lastNameTextInput.isEnabled = true
         streetAddressTextInput.isEnabled = false

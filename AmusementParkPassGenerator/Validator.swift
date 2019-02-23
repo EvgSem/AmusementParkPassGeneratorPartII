@@ -36,8 +36,10 @@ class Validator {
             try seasonPassValidation(info: prividedInfo)
         case .guest(type: .senior):
             try seniorPassValidation(info: prividedInfo)
-        case .employee(type: .foodServices), .employee(type: .rideServices), .employee(type: .maintenance), .employee(type: .contract):
+        case .employee(type: .foodServices), .employee(type: .rideServices), .employee(type: .maintenance):
             try emplyeePassValidation(info: prividedInfo)
+        case .contract:
+            try contractPassValidation(info: prividedInfo)
         case .manager:
             try emplyeePassValidation(info: prividedInfo)
         case .vendor:
