@@ -128,24 +128,6 @@ class MaintenanceSwiper: SwipeArea {
     }
 }
 
-class SeeEntrantAccessRulesSwiper: SwipeArea {
-    
-    init() {
-        super.init(accessType: RideAccess.seeEntrantAccessRules)
-        self.description = "See Entrant Access Rules"
-    }
-    
-    override func swipe(pass: EntrantPass) throws -> String {
-        
-        guard let accessType = self.accessType as? RideAccess  else {
-            throw DataError.missingAccess
-        }
-        
-        return swipeMessage(isAccessable: pass.rideAccess.contains(accessType), isPassValidNow: isPassValidNow(pass), pass: pass)
-    }
-}
-
-
 
 class OfficeSwiper: SwipeArea {
     
@@ -220,11 +202,12 @@ class AmusementAreaSwiper: SwipeArea {
 }
 
 
-class DiscountOnFoodSwiper: SwipeArea {
+class DiscountOnFood10Swiper: SwipeArea {
     
-    init(dicount: Int){
-        super.init(accessType: DiscountAccess.onFood(percentage: dicount))
-        self.description = "DiscountSwiper checks DicountOnFood for \(dicount)% Access"
+    init(){
+        let discount = 10
+        super.init(accessType: DiscountAccess.onFood(percentage: discount))
+        self.description = "DiscountSwiper checks DicountOnFood for \(discount)% Access"
     }
     
     override func swipe(pass: EntrantPass) throws -> String {
@@ -235,11 +218,77 @@ class DiscountOnFoodSwiper: SwipeArea {
     }
 }
 
-class DiscountOnMerchSwiper: SwipeArea {
+
+class DiscountOnFood15Swiper: SwipeArea {
     
-    init(dicount: Int){
-        super.init(accessType: DiscountAccess.onMenchandise(percentage: dicount))
-        self.description = "DiscountSwiper checks DicountOnMerch for \(dicount))% Access"
+    init(){
+        let discount = 20
+        super.init(accessType: DiscountAccess.onFood(percentage: discount))
+        self.description = "DiscountSwiper checks DicountOnFood for \(discount)% Access"
+    }
+    
+    override func swipe(pass: EntrantPass) throws -> String {
+        guard let accessType = self.accessType as? DiscountAccess  else {
+            throw DataError.missingAccess
+        }
+        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType}), isPassValidNow: isPassValidNow(pass), pass: pass)
+    }
+}
+
+class DiscountOnFood25Swiper: SwipeArea {
+    
+    init(){
+        let discount = 25
+        super.init(accessType: DiscountAccess.onFood(percentage: discount))
+        self.description = "DiscountSwiper checks DicountOnFood for \(discount)% Access"
+    }
+    
+    override func swipe(pass: EntrantPass) throws -> String {
+        guard let accessType = self.accessType as? DiscountAccess  else {
+            throw DataError.missingAccess
+        }
+        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType}), isPassValidNow: isPassValidNow(pass), pass: pass)
+    }
+}
+
+class DiscountOnMerch10Swiper: SwipeArea {
+    
+    init() {
+        let discount = 10
+        super.init(accessType: DiscountAccess.onMenchandise(percentage: discount))
+        self.description = "DiscountSwiper checks DicountOnMerch for \(discount))% Access"
+    }
+    
+    override func swipe(pass: EntrantPass) throws -> String {
+        guard let accessType = self.accessType as? DiscountAccess  else {
+            throw DataError.missingAccess
+        }
+        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType}), isPassValidNow: isPassValidNow(pass), pass: pass)
+    }
+}
+
+class DiscountOnMerch20Swiper: SwipeArea {
+    
+    init() {
+        let discount = 20
+        super.init(accessType: DiscountAccess.onMenchandise(percentage: discount))
+        self.description = "DiscountSwiper checks DicountOnMerch for \(discount))% Access"
+    }
+    
+    override func swipe(pass: EntrantPass) throws -> String {
+        guard let accessType = self.accessType as? DiscountAccess  else {
+            throw DataError.missingAccess
+        }
+        return swipeMessage(isAccessable: pass.discountAccess.contains(where: {$0 == accessType}), isPassValidNow: isPassValidNow(pass), pass: pass)
+    }
+}
+
+class DiscountOnMerch25Swiper: SwipeArea {
+    
+    init() {
+        let discount = 25
+        super.init(accessType: DiscountAccess.onMenchandise(percentage: discount))
+        self.description = "DiscountSwiper checks DicountOnMerch for \(discount))% Access"
     }
     
     override func swipe(pass: EntrantPass) throws -> String {

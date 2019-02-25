@@ -200,9 +200,9 @@
                                                     </button>
                                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eO5-OR-mHO">
                                                         <rect key="frame" x="0.0" y="53" width="89" height="23.5"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" red="0.8591353893" green="0.83851373200000001" blue="0.87559646369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                                        <state key="normal" title="See Entrant Access Rules">
+                                                        <state key="normal">
                                                             <color key="titleColor" red="0.25044509469999998" green="0.4343395417" blue="0.418050951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
@@ -230,7 +230,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="rhc-hF-qch">
                                                 <rect key="frame" x="226" y="0.0" width="89" height="129"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aI-P5-5Yb">
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aI-P5-5Yb">
                                                         <rect key="frame" x="0.0" y="0.0" width="89" height="19.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -241,7 +241,7 @@
                                                             <action selector="accessButtonTest:" destination="LbX-u5-sLo" eventType="touchUpInside" id="Bsl-K4-qfX"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgY-jf-6Lm">
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgY-jf-6Lm">
                                                         <rect key="frame" x="0.0" y="21.5" width="89" height="20"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -252,7 +252,7 @@
                                                             <action selector="accessButtonTest:" destination="LbX-u5-sLo" eventType="touchUpInside" id="ZSi-CT-4Mg"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZ5-hG-4jG">
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZ5-hG-4jG">
                                                         <rect key="frame" x="0.0" y="43.5" width="89" height="20"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -263,7 +263,7 @@
                                                             <action selector="accessButtonTest:" destination="LbX-u5-sLo" eventType="touchUpInside" id="tJ6-gP-28z"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFU-2B-QrV">
+                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFU-2B-QrV">
                                                         <rect key="frame" x="0.0" y="65.5" width="89" height="20"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -274,7 +274,7 @@
                                                             <action selector="accessButtonTest:" destination="LbX-u5-sLo" eventType="touchUpInside" id="FSm-Qv-N3V"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f26-IO-qzf">
+                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f26-IO-qzf">
                                                         <rect key="frame" x="0.0" y="87.5" width="89" height="20"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -285,7 +285,7 @@
                                                             <action selector="accessButtonTest:" destination="LbX-u5-sLo" eventType="touchUpInside" id="fcj-af-C4L"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4p-3B-LRz">
+                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4p-3B-LRz">
                                                         <rect key="frame" x="0.0" y="109.5" width="89" height="19.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>

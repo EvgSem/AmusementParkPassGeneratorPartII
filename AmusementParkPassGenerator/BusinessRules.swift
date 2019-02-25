@@ -97,8 +97,8 @@ enum EntrantType {
             
             }
         case .manager: return [.allRides]
-        case .vendor: return [.seeEntrantAccessRules]
-        case .contract: return [.seeEntrantAccessRules]
+        case .vendor: return []
+        case .contract: return []
             
         }
     }

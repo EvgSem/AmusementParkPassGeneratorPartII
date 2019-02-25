@@ -31,7 +31,6 @@ enum AreaAccess: Access {
 enum RideAccess: Access {
     case allRides
     case skipAllLines
-    case seeEntrantAccessRules
     
     var title: String {
         switch self {
@@ -39,8 +38,6 @@ enum RideAccess: Access {
             return "All Rides"
         case .skipAllLines:
             return "Skip all Lines"
-        case .seeEntrantAccessRules:
-            return "See Entrant Access Rules"
         }
     }
 }

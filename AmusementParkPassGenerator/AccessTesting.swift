@@ -25,7 +25,6 @@ enum AccessButtonTag: Int {
     case officeAreas
     case allRides
     case skipAllLines
-    case seeEntrantAccessRules
     case onFood10
     case onFood15
     case onFood25
@@ -43,13 +42,12 @@ enum AccessButtonTag: Int {
         case .officeAreas: return OfficeSwiper(officeName: "Main office")
         case .allRides: return RideSwiper(rideName: "Ride Swiper")
         case .skipAllLines: return SkipLineSwiper()
-        case .seeEntrantAccessRules: return SeeEntrantAccessRulesSwiper()
-        case .onFood10: return DiscountOnFoodSwiper(dicount: 10)
-        case .onFood15: return DiscountOnFoodSwiper(dicount: 15)
-        case .onFood25: return DiscountOnFoodSwiper(dicount: 25)
-        case .onMenchandise10: return DiscountOnMerchSwiper(dicount: 10)
-        case .onMenchandise20: return DiscountOnMerchSwiper(dicount: 20)
-        case .onMenchandise25: return DiscountOnMerchSwiper(dicount: 25)
+        case .onFood10: return DiscountOnFood10Swiper()
+        case .onFood15: return DiscountOnFood15Swiper()
+        case .onFood25: return DiscountOnFood25Swiper()
+        case .onMenchandise10: return DiscountOnMerch10Swiper()
+        case .onMenchandise20: return DiscountOnMerch20Swiper()
+        case .onMenchandise25: return DiscountOnMerch25Swiper()
         }
     }
 }

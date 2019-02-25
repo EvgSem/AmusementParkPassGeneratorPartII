@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/Swiper.swift"
-            timestampString = "572473621.806622"
+            timestampString = "572765242.027757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/Swiper.swift"
-            timestampString = "572473621.808229"
+            timestampString = "572765242.027908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/Swiper.swift"
-            timestampString = "572473621.808866"
+            timestampString = "572765242.027986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/Swiper.swift"
-            timestampString = "572473621.809325"
+            timestampString = "572765242.028095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/AccessTesting.swift"
-            timestampString = "572473621.810716"
+            timestampString = "572765242.028165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "test(entrantPass:accessTag:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/PassViewController.swift"
-            timestampString = "572565498.777496"
+            timestampString = "572765242.028234"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/Swiper.swift"
-            timestampString = "572473621.8114229"
+            timestampString = "572765242.028302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/Swiper.swift"
-            timestampString = "572473621.811728"
+            timestampString = "572765242.028367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/Swiper.swift"
-            timestampString = "572473621.812027"
+            timestampString = "572765242.02843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/CreatePassViewController.swift"
-            timestampString = "572586420.377332"
+            timestampString = "572765242.028492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/CreatePassViewController.swift"
-            timestampString = "572586420.378004"
+            timestampString = "572765242.028581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
@@ -266,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/CreatePassViewController.swift"
-            timestampString = "572586420.378498"
+            timestampString = "572765242.028653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "335"
@@ -282,7 +282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/Validator.swift"
-            timestampString = "572586420.378956"
+            timestampString = "572765242.028725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -294,11 +294,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/CreatePassViewController.swift"
-            timestampString = "572586420.379022"
+            timestampString = "572765242.028803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "274"
@@ -310,11 +310,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/CreatePassViewController.swift"
-            timestampString = "572586420.379467"
+            timestampString = "572765242.028867"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "286"
@@ -326,11 +326,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/CreatePassViewController.swift"
-            timestampString = "572586420.379918"
+            timestampString = "572765242.0289299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "303"
@@ -342,11 +342,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/PassViewController.swift"
-            timestampString = "572565498.779966"
+            timestampString = "572765242.028993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -362,12 +362,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AmusementParkPassGenerator/CreatePassViewController.swift"
-            timestampString = "572586420.380432"
+            timestampString = "572765242.029052"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "204"
             endingLineNumber = "204"
             landmarkName = "passTypeButtonTapped(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AmusementParkPassGenerator/AccessTesting.swift"
+            timestampString = "572765242.029111"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "create(accessButton:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
